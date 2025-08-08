@@ -2,6 +2,9 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import FriendsList from "./components/FriendsList";
+import FormAddFriend from "./components/FormAddFriend";
+import Button from "./components/Button";
+import FormSplitBill from "./components/FormSplitBill";
 
 export const initialFriends = [
   {
@@ -29,7 +32,11 @@ function App() {
     <div className="app">
       <div className="sidebar">
         <FriendsList />
+        <FormAddFriend />
+        <Button>Add friend</Button>
       </div>
+
+      <FormSplitBill />
     </div>
   );
 }
