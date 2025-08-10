@@ -29,16 +29,21 @@ export const initialFriends = [
 
 function App() {
   const [showAddFriend, setShowAddFriend] = useState(false);
+  const [friends, setFriends] = useState(initialFriends);
 
   function handleShowAddFriend() {
     setShowAddFriend((showAddFriend) => !showAddFriend);
   }
 
+  function addFriend(friend) {
+    setFriends((friends) => [...friends, friend]);
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendsList />
-        {showAddFriend ? <FormAddFriend /> : null}
+        <FriendsList friends={friends} />
+        {showAddFriend ? <FormAddFriend addFriend={addFriend} /> : null}
         <Button onClick={handleShowAddFriend}>
           {showAddFriend ? "Cancel" : "Add Friend"}
         </Button>
